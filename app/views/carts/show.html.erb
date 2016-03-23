@@ -1,0 +1,18 @@
+<p id="notice">
+  <%= notice %>
+</p>
+<h1>
+  Il tuo carrello
+</h1>
+
+<ul class="list-group">
+  <% @cart.line_items.each do |item| %>
+  <li class="list-group-item">
+    <span class="badge"><%= item.quantity %></span>
+    <%= item.product.title %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>

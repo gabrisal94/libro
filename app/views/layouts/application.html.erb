@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Depot</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<title>Pragprog Books Online Store</title>
+<%= stylesheet_link_tag "application", media: "all",
+    "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
+  </head>
+<body class="<%= controller.controller_name %>">
+  <!--
+  <div id="banner">
+    <%= @page_title || "Pragmatic Bookshelf" %>
+  </div>
+  -->
+  <div id="columns">
+    <nav class="navbar navbar-default" id="side">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Home', store_index_path %></li>
+            <li><a href="/products">Gestisci prodotti</a></li>
+            <li><a href="/carts">Carrelli</a></li>
+            <!--
+            <li><a href="http://www..../news">News</a></li>
+            <li><a href="http://www..../contact">Contact</a></li>
+            -->
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
